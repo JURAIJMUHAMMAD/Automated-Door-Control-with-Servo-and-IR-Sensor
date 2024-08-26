@@ -1,0 +1,23 @@
+#include<Servo.h>
+Servo ser;
+int IR=2;
+void setup() {
+Serial.begin(9600);
+ser.attach(6);
+pinMode (IR, INPUT);
+}
+void loop() {
+int data-digitalRead(IR);
+if (data>=1)
+{
+ser.write(0);
+Serial.println("door closed");
+delay (15);
+}
+if (data<=0)
+{
+ser.write(90);
+Serial.println("door open");
+delay (15);
+}
+}
